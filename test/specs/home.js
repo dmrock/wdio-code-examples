@@ -53,6 +53,11 @@ describe("Home", () => {
     const headingText = await headingEl.getText()
 
     // Assert the text
-    await expect(headingText).toEqual("Think different. Make different.")
+
+    // Option 1
+    // await expect(headingText).toEqual("Think different. Make different.")
+
+    // Option 2 (wdio expect assertion)
+    await expect(headingEl).toHaveText("Think different. Make different.")
   })
 })
