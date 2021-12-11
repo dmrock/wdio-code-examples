@@ -24,7 +24,8 @@ describe("Navigation menu", () => {
   })
 
   it.only("Get the text of all menu items & assert them – using wait command", async () => {
-    browser.pause(5000)
+    // hardcoded timeout
+    // browser.pause(5000)
     browser.url("/")
 
     const expectedLinks = [
@@ -37,6 +38,11 @@ describe("Navigation menu", () => {
     ]
 
     const actualLinks = []
+
+    // waitForDisplayed example
+    // await $("#primary-menu").waitForDisplayed({ timeuot: 1000 })
+    // waitForClickable example
+    await $("#primary-menu li").waitForClickable()
 
     const navLinks = await $$("#primary-menu li[id *= menu]")
 
