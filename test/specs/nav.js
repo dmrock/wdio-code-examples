@@ -42,7 +42,19 @@ describe("Navigation menu", () => {
     // waitForDisplayed example
     // await $("#primary-menu").waitForDisplayed({ timeuot: 1000 })
     // waitForClickable example
-    await $("#primary-menu li").waitForClickable()
+    // await $("#primary-menu li").waitForClickable()
+
+    // wait until the Home text is displayed no the navigation menu
+    await browser.waitUntil(
+      async function () {
+        const homeText = await $("#primary-menu li").getText() // Home
+        return homeText === "Shop" // true | false
+      },
+      {
+        timeout: 5000,
+        timeoutMsg: "Could not verify the Home text from #primart-menu li",
+      }
+    )
 
     const navLinks = await $$("#primary-menu li[id *= menu]")
 
