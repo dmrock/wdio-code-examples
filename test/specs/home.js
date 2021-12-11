@@ -54,7 +54,7 @@ describe("Home", () => {
 
     // Assert the text
 
-    // Option 1
+    // Option 1 (Jest library)
     // await expect(headingText).toEqual("Think different. Make different.")
 
     // Option 2 (wdio expect assertion)
