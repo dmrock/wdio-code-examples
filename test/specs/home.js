@@ -49,8 +49,8 @@ describe("Home", () => {
     // Find heading element
     const headingEl = await $(".elementor-widget-container h1")
 
-    // Get the text
-    const headingText = await headingEl.getText()
+    // Get the text (for Option 1)
+    // const headingText = await headingEl.getText()
 
     // Assert the text
 
