@@ -1,10 +1,12 @@
+import BlogPage from "../pages/blog-page"
+
 describe("Blog", () => {
   it("Get the list of all recent posts & assert the lenght of eash post is > than 10 & assert the total length of the list = 5", async () => {
-    await browser.url("/blog")
+    await BlogPage.open()
 
-    const recentPostsList = await $$("#recent-posts-3 ul li")
+    const recentPostsList = await BlogPage.listRecentPosts
 
-    for (post of recentPostsList) {
+    for (const post of recentPostsList) {
       const text = await post.getText()
       await expect(text.length).toBeGreaterThan(10)
     }

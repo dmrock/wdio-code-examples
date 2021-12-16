@@ -1,14 +1,17 @@
+import ContactPage from "../pages/contact-page"
+
 describe("Contact form", () => {
   it("Fill the form, submit & assert the success message", async () => {
-    await browser.url("/contact")
+    await ContactPage.open()
 
-    await $(".contact-name input").addValue("Ivan")
-    await $(".contact-email input").addValue("i.ivanov@gmail.com")
-    await $(".contact-phone input").addValue("+79687777777")
-    await $(".contact-message textarea").addValue("Some text message...")
-    await $("button[type=submit]").click()
+    await ContactPage.submitForm(
+      "Ivan",
+      "i.ivanov@gmail.com",
+      "+79687777777",
+      "Some text message..."
+    )
 
-    const successAlert = $("[role=alert")
+    const successAlert = ContactPage.alertSuccess
 
     await expect(successAlert).toHaveTextContaining(
       "Thanks for contacting us! We will be in touch with you shortly"
