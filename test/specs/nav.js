@@ -1,6 +1,8 @@
+import HomePage from "../pages/home-page"
+
 describe("Navigation menu", () => {
   it("Get the text of all menu items & assert them", async () => {
-    await browser.url("/")
+    await HomePage.open()
 
     const expectedLinks = [
       "Home",
@@ -14,7 +16,7 @@ describe("Navigation menu", () => {
     const actualLinks = []
 
     // const navLinks = await $("#primary-menu").$$("li[id *= menu]")
-    const navLinks = await $$("#primary-menu li[id *= menu]")
+    const navLinks = await HomePage.NavComponent.linksNavMenu
 
     for (const link of navLinks) {
       actualLinks.push(await link.getText())
@@ -23,10 +25,10 @@ describe("Navigation menu", () => {
     await expect(actualLinks).toEqual(expectedLinks)
   })
 
-  it.only("Get the text of all menu items & assert them – using wait command", async () => {
+  it("Get the text of all menu items & assert them – using wait command", async () => {
     // hardcoded timeout
     // browser.pause(5000)
-    browser.url("/")
+    await HomePage.open()
 
     const expectedLinks = [
       "Home",
@@ -47,8 +49,8 @@ describe("Navigation menu", () => {
     // wait until the Home text is displayed no the navigation menu
     await browser.waitUntil(
       async function () {
-        const homeText = await $("#primary-menu li").getText() // Home
-        return homeText === "Shop" // true | false
+        const homeText = await HomePage.NavComponent.firstNavMenuList.getText() // Home
+        return homeText === "Home" // true | false
       },
       {
         timeout: 5000,
@@ -56,7 +58,7 @@ describe("Navigation menu", () => {
       }
     )
 
-    const navLinks = await $$("#primary-menu li[id *= menu]")
+    const navLinks = await HomePage.NavComponent.linksNavMenu
 
     for (const link of navLinks) {
       actualLinks.push(await link.getText())

@@ -1,3 +1,4 @@
+import NavComponent from "./components/nav-comp"
 class HomePage {
   open() {
     return browser.url("/")
@@ -13,6 +14,10 @@ class HomePage {
 
   get txtHeading() {
     return $(".elementor-widget-container h1")
+  }
+
+  get NavComponent() {
+    return NavComponent
   }
 }
 
