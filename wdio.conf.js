@@ -20,7 +20,7 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./test/specs/**/contact.js"],
+  specs: ["./test/specs/**/home.js"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -201,8 +201,9 @@ exports.config = {
   /**
    * Function to be executed before a test (in Mocha/Jasmine) starts.
    */
-  // beforeTest: function (test, context) {
-  // },
+  beforeTest: async function () {
+    await browser.setWindowSize(1000, 800)
+  },
   /**
    * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
    * beforeEach in Mocha)

@@ -1,10 +1,24 @@
 import HomePage from "../pages/home-page"
 
 describe("Home", () => {
-  it("Open URL & assert title", async () => {
-    // Open URL
-    await HomePage.open()
+  before(async () => {
+    console.log("THIS COULD BE USED FOR TEST SETUP")
+  })
 
+  beforeEach(async () => {
+    // Open Home URL
+    await HomePage.open()
+  })
+
+  after(async () => {
+    console.log("THIS COULD BE USED FOR TEST CLEANUP")
+  })
+
+  afterEach(async () => {
+    console.log("THIS RUNS AFTER EACH TEST")
+  })
+
+  it("Open URL & assert title", async () => {
     // Assert title
     await expect(browser).toHaveTitle(
       "Practice E-Commerce Site – Automation Bro"
@@ -20,9 +34,6 @@ describe("Home", () => {
   })
 
   it("Click get-started btn & assert url contains get-started text", async () => {
-    // Open Home URL
-    await HomePage.open()
-
     // Click get started button
     await HomePage.btnGetStarted.click()
 
@@ -31,9 +42,6 @@ describe("Home", () => {
   })
 
   it("Click logo & assert url doesn't contain get-started text", async () => {
-    // Open Home URL
-    await HomePage.open()
-
     // Click logo
     await HomePage.imgLogo.click()
 
@@ -42,9 +50,6 @@ describe("Home", () => {
   })
 
   it("Find heading element & assert the text", async () => {
-    // Open Home URL
-    await HomePage.open()
-
     // Find heading element
     const headingEl = await HomePage.txtHeading
 
