@@ -20,11 +20,16 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./test/specs/**/contact.js"],
+  specs: ["./test/specs/**/*.js"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
   ],
+  // Define suites
+  suites: {
+    smoke: ["./test/specs/**/home.js", "./test/specs/**/contact.js"],
+    component: ["./test/specs/**/nav.js"],
+  },
   //
   // ============
   // Capabilities
