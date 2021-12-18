@@ -24,6 +24,8 @@ exports.config = {
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
+    "./test/specs/**/nav.js",
+    "./test/specs/**/contact.js",
   ],
   // Define suites
   suites: {
