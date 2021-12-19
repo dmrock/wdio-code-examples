@@ -1,7 +1,11 @@
 import HomePage from "../pages/home-page"
+import allureReporter from "@wdio/allure-reporter"
 
 describe("Navigation menu", () => {
   it("Get the text of all menu items & assert them", async () => {
+    allureReporter.addFeature("Navigation")
+    allureReporter.addSeverity("critical")
+
     await HomePage.open()
 
     const expectedLinks = [
