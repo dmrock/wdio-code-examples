@@ -68,6 +68,9 @@ exports.config = {
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
     },
+    // {
+    //   browserName: "firefox",
+    // },
   ],
   //
   // ===================
@@ -117,6 +120,7 @@ exports.config = {
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: ["chromedriver"],
+  // services: ["selenium-standalone"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
