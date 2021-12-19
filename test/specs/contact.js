@@ -15,7 +15,7 @@ describe("Contact form", () => {
     const successAlert = ContactPage.alertSuccess
 
     await expect(successAlert).toHaveTextContaining(
-      "Thanks for contacting us! We will be in touch with you shortly"
+      "Thank you for contacting us! We will be in touch with you shortly"
     )
   })
 })
